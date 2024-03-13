@@ -1,48 +1,25 @@
-let button1 = document.getElementById("button1");
-if (button1) {
-  button1.addEventListener("click", function () {
-    showLoading();
-    window.location.href = "/pages/page1.html";
+const buttons = [
+    { id: "button1", url: "/pages/page1.html" },
+    { id: "button2", url: "/pages/page2.html" },
+    { id: "button3", url: "/pages/page3.html" },
+    { id: "button4", url: "/pages/page4.html" },
+    { id: "home", url: "../index.html" }
+  ];
+  
+  buttons.forEach(button => {
+    const buttonElement = document.getElementById(button.id);
+    if (buttonElement) {
+      buttonElement.addEventListener("click", function () {
+        showLoading();
+        window.location.href = button.url;
+      });
+    }
   });
-}
-
-let button2 = document.getElementById("button2");
-if (button2) {
-  button2.addEventListener("click", function () {
-    showLoading();
-    //await new Promise(resolve => setTimeout(resolve, 10000));
-    window.location.href = "/pages/page2.html";
-  });
-}
-
-let button3 = document.getElementById("button3");
-if (button3) {
-  button3.addEventListener("click", function () {
-    showLoading();
-    window.location.href = "/pages/page3.html";
-  });
-}
-
-let button4 = document.getElementById("button4");
-if (button4) {
-  button4.addEventListener("click", function () {
-    showLoading();
-    window.location.href = "/pages/page4.html";
-  });
-}
-
-let homeButton = document.getElementById("home");
-if (homeButton) {
-  homeButton.addEventListener("click", function () {
-    showLoading();
-    window.location.href = "../index.html";
-  });
-}
-
-function showLoading() {
-  document.getElementById("loading").classList.remove("hidden");
-}
-
-function hideLoading() {
-  document.getElementById("loading").classList.add("hidden");
-}
+  
+  function showLoading() {
+    document.getElementById("loading").classList.remove("hidden");
+  }
+  
+  function hideLoading() {
+    document.getElementById("loading").classList.add("hidden");
+  }
